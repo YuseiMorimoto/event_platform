@@ -17,18 +17,18 @@ export interface IEvent extends Document {
 }
 
 const EventSchema = new Schema({
-  title: { type: "string", required: true },
-  description: { type: "string" },
-  location: { type: "string" },
+  title: { type: String, required: true },
+  description: { type: String },
+  location: { type: String },
   createdAt: { type: "date", default: "Date.now" },
-  imageurl: { type: "string", required: true },
+  imageurl: { type: String, required: true },
   startDateTime: { type: Date, default: "Date.now" },
   endDateTime: { type: Date, default: "Date.now" },
-  price: { type: "string" },
+  price: { type: String },
   isFree: { type: "boolean", default: false },
-  url: { type: "string" },
-  category: { type: "schema.Types.ObjectId", ref: "Category" },
-  organizer: { type: "schema.Types.ObjectId", ref: "User" },
+  url: { type: String },
+  category: { type: Schema.Types.ObjectId, ref: "Category" },
+  organizer: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
 const Event = models.Event || model("Event", EventSchema);
